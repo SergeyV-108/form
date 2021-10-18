@@ -94,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (error === 0) {
 			form.classList.add('_sending');
 			form.nextElementSibling.classList.add('_sending');
-			let response = await fetch('sendmail.php', {
+			let response = await fetch('https://formspree.io/f/mjvjdygz', {
 				method: 'POST',
 				body: formData
 			});
@@ -155,8 +155,3 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 });
 //===============================================================//
-window.onbeforeunload = () => {
-	for (const form of document.getElementsByTagName('form')) {
-		form.reset();
-	}
-}
