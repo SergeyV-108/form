@@ -97,9 +97,14 @@ document.addEventListener("DOMContentLoaded", function () {
 			let response = axios({  
 				url: 'https://formspree.io/f/mjvjdygz',  
 				method: 'post',  
-				headers: {'Accept': 'application/json'  },  
-				data: {email: 'serg.v.portfolio@gmail.com',    message: "Hello!"  }
-			}).then((response) => { console.log(response); })
+				headers: {
+					'Accept': 'application/json'  
+				},  
+				data: {
+					email: 'serg.v.portfolio@gmail.com',    
+					message: "Hello!"  
+				}
+			}).then((response) => { console.log(response); });
 			if (response.ok) {
 				let result = await response.json(); //подтверждение отправки
 				alert(result.message); //сообщение об отправке
