@@ -94,10 +94,12 @@ document.addEventListener("DOMContentLoaded", function () {
 		if (error === 0) {
 			form.classList.add('_sending');
 			form.nextElementSibling.classList.add('_sending');
-			let response = await fetch('https://formspree.io/f/mjvjdygz', {
-				method: 'POST',
-				body: formData
-			});
+			let response = axios({  
+				url: 'https://formspree.io/f/mjvjdygz',  
+				method: 'post',  
+				headers: {'Accept': 'application/json'  },  
+				data: {email: 'serg.v.portfolio@gmail.com',    message: "Hello!"  }
+			}).then((response) => { console.log(response); })
 			if (response.ok) {
 				let result = await response.json(); //подтверждение отправки
 				alert(result.message); //сообщение об отправке
